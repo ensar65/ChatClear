@@ -11,10 +11,14 @@ switch($command) {
         $name;
         if($sender instanceof Player) {
             $name = $sender->getPlayer()->getName();
+            if(!$sender->hasPermission("chatclear.command")) { 
+         $sender->sendMessage("§4Bu komutu kullanma yetkin yok!");
+        return true;
+        }
         } else {
              $name = "CONSOLE";
             }
-    for($i = 0; $i < 200;$i++){
+    for($i = 0; $i < 75; $i++){
 $this->getServer()->broadcastMessage(" ");
     };
 $this->getServer()->broadcastMessage("§6Chat §l§f".$name. "§r§6 adlı yetkili tarafından silindi.");
